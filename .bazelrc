@@ -1,0 +1,17 @@
+# don't use bzlmod
+common --noenable_bzlmod
+
+# release config
+build --cxxopt -std=c++2a 
+build --copt -Wno-deprecated-declarations
+
+# sanitizer config
+build:san --strip=never
+build:san --copt -fsanitize=address,undefined,leak
+build:san --copt -DADDRESS_SANITIZER
+build:san --copt -O0
+build:san --copt -g
+build:san --copt -fno-omit-frame-pointer
+build:san --linkopt -fsanitize=address,undefined,leak
+build:san --sandbox_debug 
+build:san --spawn_strategy=standalone

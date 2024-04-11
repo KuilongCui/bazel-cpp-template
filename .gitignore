@@ -1,0 +1,6 @@
+# editor or IDE config
+.vscode
+.idea
+
+# bazel output
+bazel-**/**
